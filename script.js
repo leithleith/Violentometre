@@ -72,7 +72,11 @@ function calcul()
 var layout = {
     paper_bgcolor: '#1e1e1e',
     font: {size: 12, color: '#cdcccc'},
-    showlegend: false,
+    showlegend: true,
+    legend: {
+        x: 0,
+        y: -1
+      },
     polar: {
       bgcolor: "#d7d9dc",
       barmode: "overlay",
@@ -86,13 +90,6 @@ var config = {
     responsive: true,
     displaylogo: false,
     locale: 'fr',
-    modeBarButtonsToAdd: [
-        {
-          name: 'Passer en plein écran',
-          icon: Plotly.Icons.zoombox,
-          click: function(gd) {
-            document.getElementById("rose").requestFullscreen();
-          }}],
     modeBarButtonsToRemove: ['pan2d','select2d','lasso2d','resetScale2d','zoom2d'],
     scrollZoom: false,
     toImageButtonOptions: {
