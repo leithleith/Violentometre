@@ -6,7 +6,9 @@ var appShellFiles = [
   'script.js',
   'plotly-2.16.1.min.js',
   'plotly-locale-fr.js',
-  'logoUFICT.png'
+  'logoUFICT.png',
+  'cc.png',
+  'qrcodevmetre.png'
 ];
 self.addEventListener('install', function(e) {
     e.waitUntil(

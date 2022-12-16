@@ -2,6 +2,19 @@ if('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
 };
 var toggle = false;
+function melanger() {
+  var tableau = ['<input type="checkbox" id="1" name="A1" value="1">Remarques et critiques acceptées<br/>', '<input type="checkbox" id="2" name="A2" value="1">Promotions pour les femmes comme pour les hommes<br/>', '<input type="checkbox" id="3" name="A3" value="1">Travail en confiance et autonomie<br/>', '<input type="checkbox" id="4" name="A4" value="1">Reconnaissance du travail<br/>', '<input type="checkbox" id="5" name="A5" value="1">Refus de relations extraprofessionnelles accepté<br/>', '<input type="checkbox" id="6" name="B1" value="1">Commentaires sur l\'apparence<br/>', '<input type="checkbox" id="7" name="B2" value="1">Parole coupée systématiquement<br/>', '<input type="checkbox" id="8" name="B3" value="1">Blague sur les promotions canapé<br/>', '<input type="checkbox" id="9" name="B4" value="1">Questions indiscrètes insistantes sur la vie privée<br/>', '<input type="checkbox" id="10" name="B5" value="1">Blagues sexistes sur les blondes<br/>', '<input type="checkbox" id="11" name="B6" value="1">Evocation de sexualité sans accord<br/>', '<input type="checkbox" id="12" name="B7" value="1">Mécontentement après refus d\'être raccompagnée<br/>', '<input type="checkbox" id="13" name="B8" value="1">Recherche systématique d\'être seul avec une femme<br/>', '<input type="checkbox" id="14" name="C1" value="1">Images à caractère pornographique visibles<br/>', '<input type="checkbox" id="15" name="C2" value="1">Regards insistants sur la poitrine et les fesses<br/>', '<input type="checkbox" id="16" name="C3" value="1">SMS ou courriels à caractère sexuel sans accord<br/>', '<input type="checkbox" id="17" name="C4" value="1">Demande insistante d\'un acte sexuel<br/>', '<input type="checkbox" id="18" name="C5" value="1">Hostilité liée au refus d\'un acte sexuel<br/>', '<input type="checkbox" id="19" name="D1" value="1">Menaces professionnelles pour obtenir un acte sexuel<br/>', '<input type="checkbox" id="20" name="D2" value="1">Baiser forcé ou par surprise<br/>', '<input type="checkbox" id="21" name="D3" value="1">Toucher les seins, fesses ou cuisses sans consentement<br/>', '<input type="checkbox" id="22" name="E1" value="1">Fellation ou pénétration forcée<br/>'];
+  for (i = tableau.length - 1; i > 0; i--)
+  {
+    var j = Math.floor(Math.random() * (i + 1));
+    [tableau[i], tableau[j]] = [tableau[j], tableau[i]];
+  }
+  for (n=0;n<tableau.length;n++)
+  {
+    document.getElementById("formulaire").innerHTML += tableau[n];
+  }
+  document.getElementById("formulaire").innerHTML += '<hr/><button onclick="calcul()">Calculer</button>';
+}
 function calcul()
 {
   var A = 0;
