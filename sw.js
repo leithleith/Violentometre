@@ -2,8 +2,8 @@ self.importScripts('script.js');
 var cacheName = 'violentometre';
 var appShellFiles = [
   'index.html',
-  'style.css',
-  'script.js',
+  'vmetre.css',
+  'vmetre.js',
   'plotly-2.16.1.min.js',
   'plotly-locale-fr.js',
   'logoUFICT.png',

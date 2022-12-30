@@ -5,9 +5,9 @@
     <meta name="description" content="Violentomètre">
     <meta name="author" content="UGICT-CGT">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="manifest" href="classif.webmanifest">
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="vmetre.css">
+    <link rel="manifest" href="vmetre.webmanifest">
+    <script type="text/javascript" src="vmetre.js"></script>
     <script type="text/javascript" src="plotly-2.16.1.min.js"></script>
     <script type="text/javascript" src="plotly-locale-fr.js"></script>
 </head>
@@ -15,18 +15,24 @@
     <div class="conteneur">
         <div id="tete">
             <img src="logoUFICT.png"/>
-            <button id="boutonmenu" onclick="menu()">☰</button>
-        </div>
-        <div id="menu" class="menu">
-          <a href="https://ugictcgt.fr/violences-sexistes-et-sexuelles/" target="newtab">Prévenir les violences sexistes et sexuelles au travail</a>
-          <br/>
-          <a href="https://ugictcgt.fr/vsst/" target="newtab">Générateur d’enquête en ligne sur les violences sexistes, sexuelles et lgbtphobes au travail</a>
-          <br/>
-          <img src="qrcodevmetre.png"/>
-        </div>
-        <div id="formulaire" class="formulaire">
             <h1>Violentomètre</h1>
-            <hr/>
+        </div>
+        <div class="tab">
+            <button class="tablinks" onclick="opentab(event, 'formulaire')">Questionnaire</button>
+            <button class="tablinks" onclick="opentab(event, 'about')">?</button>
+        </div>
+        <div id="about" class="tabcontent">
+            <h1>A propos</h1>
+            <h2>Un outil UGICT-CGT :</h2>
+            <ul>
+                <li>Respectueux de la vie privée et de l'anonymat</li>
+                <li>Pour partager :<br/><img src="qrcodevmetre.png"/></li>
+            </ul>
+            <h3><a href="https://ugictcgt.fr/violences-sexistes-et-sexuelles/" target="newtab">Prévenir les violences sexistes et sexuelles au travail</a></h3>
+            <h3><a href="https://ugictcgt.fr/vsst/" target="newtab">Générateur d’enquête en ligne sur les violences sexistes, sexuelles et lgbtphobes au travail</a></h3>
+        </div>
+        <div id="formulaire" class="tabcontent">
+            <h1>Questionnaire</h1>
         </div>
         <div id="rose" class="rose"></div>
         <div id="pied">
