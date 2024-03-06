@@ -4,7 +4,7 @@ var appShellFiles = [
   'index.html',
   'vmetre.css',
   'vmetre.js',
-  'plotly-2.16.1.min.js',
+  'plotly-violentometre.min.js',
   'plotly-locale-fr.js',
   'logoUFICT.png',
   'cc.png',

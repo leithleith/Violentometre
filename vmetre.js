@@ -4,7 +4,7 @@ if('serviceWorker' in navigator)
 };
 function melanger()
 {
-  var tableau = ['<input type="checkbox" id="1" name="A1" value="1">Remarques et critiques acceptées<br/>', '<input type="checkbox" id="2" name="A2" value="1">Promotions pour les femmes comme pour les hommes<br/>', '<input type="checkbox" id="3" name="A3" value="1">Travail en confiance et autonomie<br/>', '<input type="checkbox" id="4" name="A4" value="1">Reconnaissance du travail<br/>', '<input type="checkbox" id="5" name="A5" value="1">Refus de relations extraprofessionnelles accepté<br/>', '<input type="checkbox" id="6" name="B1" value="1">Commentaires sur l\'apparence<br/>', '<input type="checkbox" id="7" name="B2" value="1">Parole coupée systématiquement<br/>', '<input type="checkbox" id="8" name="B3" value="1">Blague sur les promotions canapé<br/>', '<input type="checkbox" id="9" name="B4" value="1">Questions indiscrètes insistantes sur la vie privée<br/>', '<input type="checkbox" id="10" name="B5" value="1">Blagues sexistes sur les blondes<br/>', '<input type="checkbox" id="11" name="B6" value="1">Evocation de sexualité sans accord<br/>', '<input type="checkbox" id="12" name="B7" value="1">Mécontentement après refus d\'être raccompagnée<br/>', '<input type="checkbox" id="13" name="B8" value="1">Recherche systématique d\'être seul avec une femme<br/>', '<input type="checkbox" id="14" name="C1" value="1">Images à caractère pornographique visibles<br/>', '<input type="checkbox" id="15" name="C2" value="1">Regards insistants sur la poitrine et les fesses<br/>', '<input type="checkbox" id="16" name="C3" value="1">SMS ou courriels à caractère sexuel sans accord<br/>', '<input type="checkbox" id="17" name="C4" value="1">Demande insistante d\'un acte sexuel<br/>', '<input type="checkbox" id="18" name="C5" value="1">Hostilité liée au refus d\'un acte sexuel<br/>', '<input type="checkbox" id="19" name="D1" value="1">Menaces professionnelles pour obtenir un acte sexuel<br/>', '<input type="checkbox" id="20" name="D2" value="1">Baiser forcé ou par surprise<br/>', '<input type="checkbox" id="21" name="D3" value="1">Toucher les seins, fesses ou cuisses sans consentement<br/>', '<input type="checkbox" id="22" name="E1" value="1">Fellation ou pénétration forcée<br/>'];
+  tableau = ['<input type="checkbox" id="1" name="A1" value="1"><label id="label1" for="1">Remarques et critiques acceptées</label><br>', '<input type="checkbox" id="2" name="A2" value="1"><label id="label2" for="2">Promotions pour les femmes comme pour les hommes</label><br>', '<input type="checkbox" id="3" name="A3" value="1"><label id="label3" for="3">Travail en confiance et autonomie</label><br>', '<input type="checkbox" id="4" name="A4" value="1"><label id="label4" for="4">Reconnaissance du travail</label><br>', '<input type="checkbox" id="5" name="A5" value="1"><label id="label5" for="5">Refus de relations extraprofessionnelles accepté</label><br>', '<input type="checkbox" id="6" name="B1" value="1"><label id="label6" for="6">Commentaires sur l\'apparence</label><br>', '<input type="checkbox" id="7" name="B2" value="1"><label id="label7" for="7">Parole coupée systématiquement</label><br>', '<input type="checkbox" id="8" name="B3" value="1"><label id="label8" for="8">Blague sur les promotions canapé</label><br>', '<input type="checkbox" id="9" name="B4" value="1"><label id="label9" for="9">Questions indiscrètes insistantes sur la vie privée</label><br>', '<input type="checkbox" id="10" name="B5" value="1"><label id="label10" for="10">Blagues sexistes sur les blondes</label><br>', '<input type="checkbox" id="11" name="B6" value="1"><label id="label11" for="11">Evocation de sexualité sans accord</label><br>', '<input type="checkbox" id="12" name="B7" value="1"><label id="label12" for="12">Mécontentement après refus d\'être raccompagnée</label><br>', '<input type="checkbox" id="13" name="B8" value="1"><label id="label13" for="13">Recherche systématique d\'être seul avec une femme</label><br>', '<input type="checkbox" id="14" name="C1" value="1"><label id="label14" for="14">Images à caractère pornographique visibles</label><br>', '<input type="checkbox" id="15" name="C2" value="1"><label id="label15" for="15">Regards insistants sur la poitrine et les fesses</label><br>', '<input type="checkbox" id="16" name="C3" value="1"><label id="label16" for="16">SMS ou courriels à caractère sexuel sans accord</label><br>', '<input type="checkbox" id="17" name="C4" value="1"><label id="label17" for="17">Demande insistante d\'un acte sexuel</label><br>', '<input type="checkbox" id="18" name="C5" value="1"><label id="label18" for="18">Hostilité liée au refus d\'un acte sexuel</label><br>', '<input type="checkbox" id="19" name="D1" value="1"><label id="label19" for="19">Menaces professionnelles pour obtenir un acte sexuel</label><br>', '<input type="checkbox" id="20" name="D2" value="1"><label id="label20" for="20">Baiser forcé ou par surprise</label><br>', '<input type="checkbox" id="21" name="D3" value="1"><label id="label21" for="21">Toucher les seins, fesses ou cuisses sans consentement</label><br>', '<input type="checkbox" id="22" name="E1" value="1"><label id="label22" for="22">Fellation ou pénétration forcée</label><br>'];
   for (var i = tableau.length - 1; i > 0; i--)
   {
     var j = Math.floor(Math.random() * (i + 1));
@@ -145,6 +145,31 @@ function calcul()
         responsive: true
     };
     Plotly.newPlot("rose", data, layout, config);
+    var restitution = "";
+    var coches = [];
+    var couleur = ["vert","vert","vert","vert","vert","jaune","jaune","jaune","jaune","jaune","jaune","jaune","jaune","orange","orange","orange","orange","orange","rouge","rouge","rouge","noir"];
+    for (var i=0;i<tableau.length;i++)
+    {
+      restitution += document.getElementById((i+1).toString()).outerHTML + document.getElementById("label" + (i+1).toString()).outerHTML + "<br>";
+      if (document.getElementById((i+1).toString()).checked)
+      {
+        coches[i] = true;
+      }
+      else
+      {
+        coches[i] = false;
+      }
+    }
+    document.getElementById("formulaire").innerHTML = restitution;
+    for (var i=0;i<coches.length;i++)
+    {      
+      if (coches[i] == true)
+      {
+        document.getElementById((i+1).toString()).checked = true;
+      }
+      document.getElementById((i+1).toString()).disabled = true;
+      document.getElementById("label" + (i+1).toString()).className = couleur[i];
+    }
   }
 }
 function couleur(score, categorie)
