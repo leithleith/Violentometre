@@ -50,32 +50,27 @@ function calcul()
   }
   if (A+B+C+D+E != 0)
   {
-    var rang;
     var rE = [0,0,0,0,0];
     var rD = [0,0,0,0,0];
     var rC = [0,0,0,0,0];
     var rB = [0,0,0,0,0];
     var rA = [0,0,0,0,0];
-
-    if (A != 0) {A = A*4; rang = 0;};
-    if (B != 0) {B = B*5/2; rang = 1;};
-    if (C != 0) {C = C*4; rang = 2};
-    if (D != 0) {D = 20; rang = 3};
-    if (E != 0) {E = 20; rang = 4};
-
-    rE[rang] = E;
-    rD[rang] = D;
-    rC[rang] = C;
-    rB[rang] = B;
-    rA[rang] = A;
     
-    //var vtheta = ["Viols", "Agressions sexuelles", "Harcèlement sexuel", "Environnement pro sexiste et hostile", "Environnement pro sain"];
-    var vtheta = ["OK", "SH", "H", "A", "V"];
+    if (E > 0) {rE[4] = 100};    
+    if (D > 0 && D <= 1) {rD[3] = 90};
+    if (D > 1) {rD[3] = 100};
+    if (C > 0 && C < 3) {rC[2] = 80};
+    if (C >= 3) {rC[2] = 100};
+    if (B >= 0 && B <= 3) {rB[1] = B*25};
+    if (B > 3 && B < 8) {rB[1] = 75 + (B-3)*5};
+    if (B >= 8) {rB[1] = 100}    
+    rA[0] = A*20;
+    
+    var vtheta = ["EPS", "EPSH", "HS", "AS", "V"];
     var data = [{
       r: rA,
       theta: vtheta,
       name: "Environnement pro sain",
-      //marker: {color: couleur(A, "OK")},
       marker: {color: "green"},
       type: "barpolar",
       hoverinfo: "name"
@@ -84,7 +79,6 @@ function calcul()
       r: rB,
       theta: vtheta,
       name: "Environnement pro sexiste et hostile",
-      //marker: {color: couleur(B, "SH")},
       marker: {color: "yellow"},
       type: "barpolar",
       hoverinfo: "name"
@@ -93,7 +87,6 @@ function calcul()
       r: rC,
       theta: vtheta,
       name: "Harcèlement sexuel",
-      //marker: {color: couleur(C, "H")},
       marker: {color: "orange"},
       type: "barpolar",
       hoverinfo: "name"
@@ -102,7 +95,6 @@ function calcul()
       r: rD,
       theta: vtheta,
       name: "Agression sexuelle",
-      //marker: {color: couleur(D, "A")},
       marker: {color: "red"},
       type: "barpolar",
       hoverinfo: "name"
@@ -111,7 +103,6 @@ function calcul()
       r: rE,
       theta: vtheta,
       name: "Viol",
-      //marker: {color: couleur(E, "V")},
       marker: {color: "black"},
       type: "barpolar",
       hoverinfo: "name"
@@ -133,7 +124,7 @@ function calcul()
         showlegend: true,
         polar: {
           bgcolor: "#d7d9dc",
-          barmode: "stack",
+          barmode: "overlay",
           bargap: 0,
           radialaxis: {ticks: "", showline: false, showticklabels: false},
           angularaxis: {direction: "clockwise"}
