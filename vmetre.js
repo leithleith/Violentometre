@@ -55,17 +55,21 @@ function calcul()
     var rC = [0,0,0,0,0];
     var rB = [0,0,0,0,0];
     var rA = [0,0,0,0,0];
-    
-    if (E > 0) {rE[4] = 100};    
-    if (D > 0 && D <= 1) {rD[3] = 90};
-    if (D > 1) {rD[3] = 100};
-    if (C > 0 && C < 3) {rC[2] = 80};
-    if (C >= 3) {rC[2] = 100};
-    if (B >= 0 && B <= 3) {rB[1] = B*25};
-    if (B > 3 && B < 8) {rB[1] = 75 + (B-3)*5};
-    if (B >= 8) {rB[1] = 100}    
-    rA[0] = A*20;
-    
+
+    /*
+    rE[4] = (E > 0) ? 100 : 0;
+    rD[3] = (D > 1) ? 100 : (D === 1) ? 90 : 0;
+    rC[2] = (C >= 3) ? 100 : (C > 0) ? 80 : 0;
+    rB[1] = (B >= 8) ? 100 : (B > 3) ? 75 + (B - 3) * 5 : B * 25;
+    rA[0] = A * 20;
+    */
+
+    rA[0] = A;
+    rB[1] = (B>0) ? B+5 : 0;
+    rC[2] = (C>0) ? C+13 : 0;
+    rD[3] = (D>0) ? D+18 : 0;
+    rE[4] = (E>0) ? E+21 : 0;
+
     var vtheta = ["EPS", "EPSH", "HS", "AS", "V"];
     var data = [{
       r: rA,
@@ -110,7 +114,7 @@ function calcul()
     ];
     var layout = {
         paper_bgcolor: '#1e1e1e',
-        font: {size: 12, color: '#cdcccc'},
+        font: {size: 14, color: '#cdcccc'},
         margin: {
           b: 10,
           l: 10,
